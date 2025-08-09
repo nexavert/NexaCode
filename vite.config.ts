@@ -1,14 +1,15 @@
 import { cloudflareDevProxyVitePlugin as remixCloudflareDevProxy, vitePlugin as remixVitePlugin } from '@remix-run/dev';
 import UnoCSS from 'unocss/vite';
-import { defineConfig, type ViteDevServer } from 'vite';
+import { defineConfig, type ViteDevServer, type ConfigEnv } from 'vite';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import * as dotenv from 'dotenv';
+import type { IncomingMessage, ServerResponse } from 'http';
 
 dotenv.config();
 
-export default defineConfig((config) => {
+export default defineConfig((config: ConfigEnv) => {
   return {
     define: {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -29,7 +30,7 @@ export default defineConfig((config) => {
       }),
       {
         name: 'buffer-polyfill',
-        transform(code, id) {
+        transform(code: string, id: string) {
           if (id.includes('env.mjs')) {
             return {
               code: `import { Buffer } from 'buffer';\n${code}`,
@@ -80,7 +81,7 @@ function chrome129IssuePlugin() {
   return {
     name: 'chrome129IssuePlugin',
     configureServer(server: ViteDevServer) {
-      server.middlewares.use((req, res, next) => {
+      server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
         const raw = req.headers['user-agent']?.match(/Chrom(e|ium)\/([0-9]+)\./);
 
         if (raw) {
