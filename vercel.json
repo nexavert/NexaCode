@@ -1,0 +1,15 @@
+{
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "build/client",
+  "framework": "remix",
+  "installCommand": "pnpm install",
+  "devCommand": "pnpm run dev",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "app/routes/api.*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
