@@ -4,14 +4,14 @@ import { classNames } from '~/utils/classNames';
 
 // Predefined gradient colors
 const GRADIENT_COLORS = [
-  'from-purple-500/10 to-blue-500/5',
-  'from-blue-500/10 to-cyan-500/5',
-  'from-cyan-500/10 to-green-500/5',
-  'from-green-500/10 to-yellow-500/5',
-  'from-yellow-500/10 to-orange-500/5',
-  'from-orange-500/10 to-red-500/5',
-  'from-red-500/10 to-pink-500/5',
-  'from-pink-500/10 to-purple-500/5',
+  'from-[#0D1D3E]/40 via-black/40 to-[#00330A]/30',
+  'from-[#0D1D3E]/30 to-[#00330A]/20',
+  'from-[#00330A]/30 to-[#0D1D3E]/20',
+  'from-[#0D1D3E]/20 to-[#00330A]/20',
+  'from-[#0D1D3E]/25 via-black/40 to-[#00330A]/25',
+  'from-[#00330A]/25 via-black/40 to-[#0D1D3E]/25',
+  'from-[#0D1D3E]/20 to-black/10',
+  'from-black/20 to-[#0D1D3E]/15',
 ];
 
 interface GradientCardProps {
@@ -72,7 +72,7 @@ export function GradientCard({
         'p-5 rounded-xl bg-gradient-to-br',
         gradientClass,
         borderEffect
-          ? 'border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor-dark hover:border-purple-500/40'
+          ? 'border border-bolt-elements-borderColor dark:border-bolt-elements-borderColor-dark hover:border-[#0D1D3E]/60'
           : '',
         'transition-all duration-300 shadow-sm',
         hoverEffect ? 'hover:shadow-md' : '',

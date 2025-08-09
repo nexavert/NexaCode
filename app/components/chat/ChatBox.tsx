@@ -93,10 +93,10 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
             <stop offset="100%" stopColor="#b44aff" stopOpacity="0%"></stop>
           </linearGradient>
           <linearGradient id="shine-gradient">
-            <stop offset="0%" stopColor="white" stopOpacity="0%"></stop>
-            <stop offset="40%" stopColor="#ffffff" stopOpacity="80%"></stop>
-            <stop offset="50%" stopColor="#ffffff" stopOpacity="80%"></stop>
-            <stop offset="100%" stopColor="white" stopOpacity="0%"></stop>
+            <stop offset="0%" stopColor="#0D1D3E" stopOpacity="0%"></stop>
+            <stop offset="40%" stopColor="#0D1D3E" stopOpacity="80%"></stop>
+            <stop offset="50%" stopColor="#00330A" stopOpacity="80%"></stop>
+            <stop offset="100%" stopColor="#00330A" stopOpacity="0%"></stop>
           </linearGradient>
         </defs>
         <rect className={classNames(styles.PromptEffectLine)} pathLength="100" strokeLinecap="round"></rect>
