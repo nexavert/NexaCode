@@ -61,6 +61,11 @@ export default defineConfig((config) => {
       'LMSTUDIO_API_BASE_URL',
       'TOGETHER_API_BASE_URL',
     ],
+    resolve: {
+      alias: {
+        path: "path-browserify",
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
