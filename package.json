@@ -12,7 +12,7 @@
   },
   "scripts": {
     "deploy": "npm run build && wrangler pages deploy",
-    "build": "remix vite:build",
+    "build": "remix vite:build && node -e \"const fs = require('fs'); const path = require('path'); if (fs.existsSync('build/server/_worker.js')) { fs.copyFileSync('build/server/_worker.js', 'build/client/_worker.js'); console.log('_worker.js copied to build/client/'); }\"",
     "build:vercel": "NODE_ENV=production remix vite:build --mode production",
     "dev": "node pre-start.cjs  && remix vite:dev",
     "test": "vitest --run",
@@ -163,6 +163,7 @@
     "@cloudflare/workers-types": "^4.20241127.0",
     "@electron/notarize": "^2.5.0",
     "@iconify-json/ph": "^1.2.1",
+    "@iconify-json/si": "^1.2.3",
     "@iconify/types": "^2.0.0",
     "@remix-run/dev": "^2.15.2",
     "@remix-run/serve": "^2.15.2",
