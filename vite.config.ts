@@ -17,6 +17,9 @@ export default defineConfig((config: ConfigEnv) => {
     build: {
       target: 'es2022',
       outDir: 'build/client',
+      rollupOptions: {
+        external: [/\.server\.(ts|tsx)$/],
+      },
     },
     plugins: [
       nodePolyfills({
@@ -52,6 +55,7 @@ export default defineConfig((config: ConfigEnv) => {
         },
         buildDirectory: 'build',
         serverBuildFile: '_worker.js',
+        ignoredRouteFiles: ["**/.*", "**/*.css", "**/*.test.{js,jsx,ts,tsx}", "**/*.server.{ts,tsx}"],
       }),
       UnoCSS(),
       tsconfigPaths(),
