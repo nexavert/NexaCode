@@ -18,7 +18,7 @@ export default defineConfig((config: ConfigEnv) => {
       target: 'es2022',
       outDir: 'build/client',
       rollupOptions: {
-        external: [/\.server\.(ts|tsx)$/],
+        external: [/\.server\.(ts|tsx)$/, /\/api\./],
       },
     },
     plugins: [
@@ -55,10 +55,7 @@ export default defineConfig((config: ConfigEnv) => {
         },
         buildDirectory: 'build',
         serverBuildFile: '_worker.js',
-        serverModuleFormat: 'esm',
-        serverPlatform: 'neutral',
-        serverMinify: true,
-        ignoredRouteFiles: ["**/.*", "**/*.css", "**/*.test.{js,jsx,ts,tsx}", "**/*.server.{ts,tsx}"],
+        ignoredRouteFiles: ["**/.*", "**/*.css", "**/*.test.{js,jsx,ts,tsx}", "**/*.server.{ts,tsx}", "**/api.*"],
       }),
       UnoCSS(),
       tsconfigPaths(),
