@@ -15,7 +15,8 @@ export default defineConfig((config: ConfigEnv) => {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     },
     build: {
-      target: 'esnext',
+      target: 'es2022',
+      outDir: 'build/client',
     },
     plugins: [
       nodePolyfills({
